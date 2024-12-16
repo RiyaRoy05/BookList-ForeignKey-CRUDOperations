@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+    <style>
+        body {
+            font-family: "Poppins", serif;;
+            background: url('../static/images/l1.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            object-fit: contain;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 130vh;
+        }
+
+        .container {
+            padding: 50px;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 1500px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            margin-left: 300px;
+            border: 2px solid #ff9800;
+            padding: 20px;
+            border-radius: 10%;
+            width: 750PX;
+            flex-direction: column;
+        }
+
+        label{
+            color: white;
+            font-weight: 600;
+        }
+
+        form p {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #id_title{
+            margin-left: 80px;
+            width: 400px;
+        }
+
+        #id_author{
+            margin-left: 60px;
+            width: 420px; 
+        }
+
+        #id_publish_date{
+            margin-left: 15px;
+            width: 400px;
+        }
+
+        #id_summary{
+            margin-left: 40px;
+            width: 400px;
+        }
+
+        #id_page_count{
+            margin-left: 30px;
+            width: 400px;
+        }
+
+        #id_language{
+            margin-left: 40px;
+            width: 400px;
+        }
+
+        form input, form select, form textarea {
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+
+        form button {
+            background-color: #b57413;
+            width: 250px;
+            color: white;
+            font-size: 1rem;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #ff9800;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 650px;
+            text-decoration: none;
+            color: #b57413;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Update</h1>
+        <form action="/hUpdate/{{id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/">Back to HOME</a>
+    </div>
+</body>
+</html>

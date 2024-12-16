@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Book Details</title>
+    <style>
+        body {
+            font-family: "Poppins", serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            height: 150vh;
+        }
+
+        .container {
+            padding: 30px;
+            border: 1px solid #231f1f;
+            margin-left: 250px;
+            border-radius: 8px;
+            width: 120%;
+            margin-top: 100px;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-left: 120px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 450px;
+            height: 350px;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td {
+            font-size: 17px;
+            margin-left: 300px;
+            padding: 10px;
+        }
+
+        td:nth-child(1) {
+            font-weight: 600;
+            width: 150px;
+            color: #555;
+        }
+
+        td:nth-child(2) {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            table td {
+                font-size: 16px;
+            }
+
+            img {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Details</h1>
+        <img src="{{book.author.image.url}}" alt="profile picture" width="20%">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Author:</td>
+                    <td>{{ book.author.name }}</td>
+                </tr>
+                <tr>
+                    <td>Book Title:</td>
+                    <td>{{book.title}}</td>
+                </tr>
+                <tr>
+                    <td>Publish Date:</td>
+                    <td>{{ book.publish_date }}</td>
+                </tr>
+                <tr>
+                    <td>Book Summary:</td>
+                    <td>{{ book.summary }}</td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td>{{ book.language }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/">Back to HOME</a>
+    </div>
+</body>
+</html>
